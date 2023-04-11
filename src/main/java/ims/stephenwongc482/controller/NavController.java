@@ -15,11 +15,10 @@ public class NavController {
     static Stage stage;
     static Parent scene;
 
-    // Opens Add Parts Menu in new scene
     // RUNTIME ERROR when there is no IOException. GetClass().getResource did not work. Used code from new project template Main.class.getResource to get it functional.
     // FUTURE ENHANCEMENT refactor in to try catch block.
     /**
-     * navigates to desired location when called
+     * navigates to desired location when called. Used for navigation between screens.
      *
      * @param actionEvent - button on main screen, location - string of location to navigate to
      */

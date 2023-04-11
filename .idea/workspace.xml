@@ -4,15 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6a6575af-c640-47b6-9bd4-ec222f893675" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/ims/stephenwongc482/controller/NavController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ims/stephenwongc482/controller/AddPartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ims/stephenwongc482/controller/AddPartController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ims/stephenwongc482/controller/AddProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ims/stephenwongc482/controller/AddProductController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ims/stephenwongc482/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ims/stephenwongc482/controller/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ims/stephenwongc482/controller/ModifyPartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ims/stephenwongc482/controller/ModifyPartController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ims/stephenwongc482/controller/ModifyProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ims/stephenwongc482/controller/ModifyProductController.java" afterDir="false" />
-    </list>
+    <list default="true" id="6a6575af-c640-47b6-9bd4-ec222f893675" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -75,7 +67,7 @@
       <option name="presentableId" value="Default" />
       <updated>1681401234738</updated>
       <workItem from="1681401235832" duration="6404000" />
-      <workItem from="1681408227863" duration="1344000" />
+      <workItem from="1681408227863" duration="1726000" />
     </task>
     <servers />
   </component>
