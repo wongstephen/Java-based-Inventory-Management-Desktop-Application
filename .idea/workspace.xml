@@ -4,29 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62787b8d-8d80-4d1b-96c1-7186af5d661f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ims/inventorymanagementsystem/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ims/inventorymanagementsystem/Model/mainController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/ims/inventorymanagementsystem/View_Controller/addPart-form.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/ims/inventorymanagementsystem/View_Controller/addProduct-form.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/ims/inventorymanagementsystem/View_Controller/main-form.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/ims/inventorymanagementsystem/View_Controller/modifyPart-form.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/ims/inventorymanagementsystem/View_Controller/modifyProduct-form.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/ims/inventorymanagementsystem/sample-main.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/ims/inventorymanagementsystem/sample.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/ims/inventorymanagementsystem/styles.css" afterDir="false" />
-    </list>
+    <list default="true" id="62787b8d-8d80-4d1b-96c1-7186af5d661f" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -73,6 +51,7 @@
       <recent name="C:\Users\Num Num\IdeaProjects\inventory-management-system\src\main\resources\ims\inventorymanagementsystem" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Num Num\IdeaProjects\stephen-wong-inventory-management-system\src\main\resources\ims\inventorymanagementsystem\samples" />
       <recent name="C:\Users\Num Num\IdeaProjects\stephen-wong-inventory-management-system\src\main\resources\ims\inventorymanagementsystem" />
       <recent name="C:\Users\Num Num\IdeaProjects\stephen-wong-inventory-management-system\src\main\java\ims\inventorymanagementsystem" />
       <recent name="C:\Users\Num Num\IdeaProjects\stephen-wong-inventory-management-system\src\main\resources\ims\inventorymanagementsystem\css" />
@@ -106,7 +85,7 @@
       <option name="presentableId" value="Default" />
       <updated>1681317158686</updated>
       <workItem from="1681317159787" duration="1171000" />
-      <workItem from="1681321813368" duration="6922000" />
+      <workItem from="1681321813368" duration="7337000" />
     </task>
     <servers />
   </component>
