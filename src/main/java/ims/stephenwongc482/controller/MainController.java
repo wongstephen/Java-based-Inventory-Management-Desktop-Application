@@ -4,6 +4,8 @@ import ims.stephenwongc482.model.InHouse;
 import ims.stephenwongc482.model.Inventory;
 import ims.stephenwongc482.model.Part;
 import javafx.application.Platform;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -19,26 +21,24 @@ import static ims.stephenwongc482.controller.NavController.navigate;
 
 public class MainController implements Initializable {
 
-    public TableView<Part> partTable;
+
+    public TableView allPartTable;
     public TableColumn partIdCol;
     public TableColumn partNameCol;
-    public TableColumn partInvCol;
+    public TableColumn partStockCol;
     public TableColumn partPriceCol;
 
-    public TableView<Part> productTable;
-    public TableColumn productIdCol;
-    public TableColumn productNameCol;
-    public TableColumn productInvCol;
-    public TableColumn productPriceCol;
+    private ObservableList<Part> allParts = FXCollections.observableArrayList();
+    private boolean firstTime = true;
 
-    /**
-     * initalizes app
-     *
-     * @param url - url
-     */
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        System.out.println("Main Screen Loaded");
+//    public TableView<Part> productTable;
+//    public TableColumn productIdCol;
+//    public TableColumn productNameCol;
+//    public TableColumn productInvCol;
+//    public TableColumn productPriceCol;
+
+
+    void initialData (){
         Part part = new InHouse(1, "Part 1", 1.00, 1, 1, 1, 1);
         Part part2 = new InHouse(2, "Part 2", 2.00, 2, 2, 2, 2);
         Part part3 = new InHouse(3, "Part 3", 3.00, 3, 3, 3, 3);
@@ -47,15 +47,29 @@ public class MainController implements Initializable {
         Inventory.addPart(part2);
         Inventory.addPart(part3);
         Inventory.addPart(part4);
-
-        partTable.setItems(Inventory.getAllParts());
-        System.out.println(Inventory.getAllParts());
-
-        partIdCol.setCellFactory(new PropertyValueFactory<>("id"));
-//        tPartName.setCellFactory(new PropertyValueFactory<>("name"));
-//        tPartInv.setCellFactory(new PropertyValueFactory<>("stock"));
-//        tPartPrice.setCellFactory(new PropertyValueFactory<>("price"));
-
+        allPartTable.setItems(Inventory.getAllParts());
+        /**
+         * RUNTIME ERROR: java.lang.NullPointerException
+         *
+         * Fixed by adding exports to module-info.java for model and controller
+         */
+        partIdCol.setCellValueFactory(new PropertyValueFactory<>("id"));
+        partNameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
+        partStockCol.setCellValueFactory(new PropertyValueFactory<>("stock"));
+        partPriceCol.setCellValueFactory(new PropertyValueFactory<>("price"));
+    }
+    /**
+     * initalizes app
+     *
+     * @param url - url
+     */
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        System.out.println("Main Screen Loaded");
+    if (firstTime) {
+            initialData();
+            firstTime = false;
+        }
 
     }
 

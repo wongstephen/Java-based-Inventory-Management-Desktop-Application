@@ -7,4 +7,6 @@ module ims.stephenwongc482 {
     exports ims.stephenwongc482;
     exports ims.stephenwongc482.controller;
     opens ims.stephenwongc482.controller to javafx.fxml;
+    exports ims.stephenwongc482.model;
+
 }
