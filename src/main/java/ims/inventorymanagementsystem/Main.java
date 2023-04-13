@@ -10,7 +10,7 @@ import java.io.IOException;
 public class Main extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("View_Controller/main-form.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("view/mainScreen.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1200, 400);
         stage.setTitle("Inventory Management System");
         scene.getStylesheets().add(getClass().getResource("styles.css").toExternalForm());

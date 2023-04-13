@@ -5,6 +5,6 @@ module ims.inventorymanagementsystem {
 
     opens ims.inventorymanagementsystem to javafx.fxml;
     exports ims.inventorymanagementsystem;
-    exports ims.inventorymanagementsystem.Model;
-    opens ims.inventorymanagementsystem.Model to javafx.fxml;
+    exports ims.inventorymanagementsystem.controller;
+    opens ims.inventorymanagementsystem.controller to javafx.fxml;
 }
