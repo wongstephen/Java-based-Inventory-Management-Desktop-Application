@@ -25,8 +25,8 @@
         <TextField accessibleText="Inventory" layoutX="179.0" layoutY="277.0" prefHeight="25.0" prefWidth="97.0" />
         <Label accessibleText="Minimun Quantity" layoutX="321.0" layoutY="281.0" text="Min" />
         <TextField accessibleText="Inventory" layoutX="358.0" layoutY="277.0" prefHeight="25.0" prefWidth="97.0" />
-        <Button layoutX="962.0" layoutY="535.0" mnemonicParsing="false" text="Save" />
-        <Button layoutX="1023.0" layoutY="535.0" mnemonicParsing="false" text="Cancel" />
+        <Button layoutX="909.0" layoutY="547.0" mnemonicParsing="false" text="Save" />
+        <Button layoutX="989.0" layoutY="547.0" mnemonicParsing="false" text="Cancel" />
         <TextField layoutX="899.0" layoutY="56.0" promptText="Search By Part ID or Name" />
         <TableView layoutX="649.0" layoutY="111.0" prefHeight="167.0" prefWidth="400.0">
             <columns>
@@ -45,6 +45,6 @@
                 <TableColumn prefWidth="137.33334350585938" text="Price/ Cost per Unit" />
             </columns>
         </TableView>
-        <Button layoutX="972.0" layoutY="545.0" mnemonicParsing="false" text="Remove Associated Part" />
+        <Button layoutX="909.0" layoutY="509.0" mnemonicParsing="false" text="Remove Associated Part" />
     </children>
 </AnchorPane>

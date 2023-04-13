@@ -11,11 +11,10 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class AddPartController {
+public class ModifyProductController {
     Stage stage;
     Parent scene;
 
-//    Nav function to make setting screen to main less redundant
     void navigateToMain(ActionEvent actionEvent) throws IOException {
         stage = (Stage)((Button)actionEvent.getSource()).getScene().getWindow();
         scene = FXMLLoader.load(Main.class.getResource("view/mainScreen.fxml"));
