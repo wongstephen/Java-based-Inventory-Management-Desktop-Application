@@ -9,7 +9,8 @@
 <AnchorPane xmlns:fx="http://javafx.com/fxml/1" fx:id="buttonText" maxHeight="-Infinity" maxWidth="-Infinity"
             minHeight="-Infinity"
             minWidth="-Infinity" prefHeight="400.0" prefWidth="1280.0"
-            xmlns="http://javafx.com/javafx/19" fx:controller="ims.inventorymanagementsystem.controller.MainController">
+            xmlns="http://javafx.com/javafx/17.0.2-ea"
+            fx:controller="ims.inventorymanagementsystem.controller.MainController">
     <children>
         <Text layoutX="51.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Inventory Management System">
             <font>
@@ -37,10 +38,10 @@
                            prefHeight="25.0" prefWidth="163.0" promptText="Search by Part ID or Name"/>
                 <Button fx:id="mainAddPartBtn" layoutX="260.0" layoutY="234.0" onAction="#handleMainAddPartBtn"
                         prefHeight="25.0" prefWidth="60.0" text="Add"/>
-                <Button fx:id="mainAddModiftBtn" layoutX="327.0" layoutY="234.0" prefHeight="25.0" onAction="#handleMainModifyPartBtn" prefWidth="60.0"
-                        text="Modify"/>
-                <Button fx:id="mainAddDeleteBtn" layoutX="400.0" layoutY="234.0" prefHeight="25.0" onAction="#handleMainDeletePartBtn" prefWidth="60.0"
-                        text="Delete"/>
+                <Button fx:id="mainModifyPartsBtn" layoutX="327.0" layoutY="234.0" onAction="#handleMainModifyPartBtn"
+                        prefHeight="25.0" prefWidth="60.0" text="Modify"/>
+                <Button fx:id="mainDelPartBtn" layoutX="400.0" layoutY="234.0" onAction="#handleMainDeletePartBtn"
+                        prefHeight="25.0" prefWidth="60.0" text="Delete"/>
             </children>
         </Group>
         <Group layoutX="633.0" layoutY="88.0">
@@ -64,9 +65,9 @@
                            prefWidth="180.0" promptText="Search by Product ID or Name"/>
                 <Button fx:id="mainAddProductBtn" layoutX="260.0" layoutY="234.0" onAction="#handleMainAddProductBtn"
                         prefHeight="25.0" prefWidth="60.0" text="Add"/>
-                <Button fx:id="label12" layoutX="327.0" layoutY="234.0" prefHeight="25.0" prefWidth="60.0"
-                        text="Modify"/>
-                <Button fx:id="label111" layoutX="400.0" layoutY="234.0" prefHeight="25.0" prefWidth="60.0"
+                <Button fx:id="mainModifyProductBtn" layoutX="327.0" layoutY="234.0"
+                        onAction="#handleMainModifyProductBtn" prefHeight="25.0" prefWidth="60.0" text="Modify"/>
+                <Button fx:id="mainDelProductBtn" layoutX="400.0" layoutY="234.0" prefHeight="25.0" prefWidth="60.0"
                         text="Delete"/>
             </children>
         </Group>
