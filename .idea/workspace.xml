@@ -5,24 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="62787b8d-8d80-4d1b-96c1-7186af5d661f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/ims/inventorymanagementsystem/controller/AddPartController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ims/inventorymanagementsystem/controller/MainController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/ims/inventorymanagementsystem/view/addPart.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/ims/inventorymanagementsystem/view/addProduct.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/ims/inventorymanagementsystem/view/mainScreen.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/ims/inventorymanagementsystem/view/modifyPart.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/ims/inventorymanagementsystem/view/modifyProduct.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ims/inventorymanagementsystem/controller/ModifyPartController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ims/inventorymanagementsystem/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ims/inventorymanagementsystem/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ims/inventorymanagementsystem/Model/mainController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/ims/inventorymanagementsystem/View_Controller/addPart-form.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/ims/inventorymanagementsystem/View_Controller/addProduct-form.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/ims/inventorymanagementsystem/View_Controller/main-form.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/ims/inventorymanagementsystem/View_Controller/modifyPart-form.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/ims/inventorymanagementsystem/View_Controller/modifyProduct-form.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/ims/inventorymanagementsystem/samples/sample.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ims/inventorymanagementsystem/samples/sample.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ims/inventorymanagementsystem/view/addPart.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ims/inventorymanagementsystem/view/addPart.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ims/inventorymanagementsystem/view/addProduct.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ims/inventorymanagementsystem/view/addProduct.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ims/inventorymanagementsystem/view/modifyPart.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ims/inventorymanagementsystem/view/modifyPart.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ims/inventorymanagementsystem/view/modifyProduct.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ims/inventorymanagementsystem/view/modifyProduct.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,23 +39,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Num Num/IdeaProjects/stephen-wong-inventory-management-system/src/main/resources/ims/inventorymanagementsystem/View_Controller&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;editing.templates&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/Num Num/IdeaProjects/stephen-wong-inventory-management-system/src/main/resources/ims/inventorymanagementsystem/View_Controller",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "editing.templates",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Num Num\IdeaProjects\stephen-wong-inventory-management-system\src\main\resources\ims\inventorymanagementsystem\View_Controller" />
@@ -82,6 +71,9 @@
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="ims.inventorymanagementsystem" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="ims.inventorymanagementsystem.controller" />
     </key>
   </component>
   <component name="RunManager">
@@ -103,12 +95,23 @@
       <updated>1681317158686</updated>
       <workItem from="1681317159787" duration="1171000" />
       <workItem from="1681321813368" duration="15000000" />
-      <workItem from="1681344232567" duration="310000" />
+      <workItem from="1681344232567" duration="1337000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
