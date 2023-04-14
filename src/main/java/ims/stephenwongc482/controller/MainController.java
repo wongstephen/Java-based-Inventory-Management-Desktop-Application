@@ -15,6 +15,8 @@ public class MainController implements Initializable {
 
     /**
      * initalizes app
+     *
+     * @param url - url
      */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -86,7 +88,7 @@ public class MainController implements Initializable {
     }
 
     /**
-     * exits app
+     * handles exit button on main screen click and exits app
      *
      * @param actionEvent - exit button on main screen
      */
