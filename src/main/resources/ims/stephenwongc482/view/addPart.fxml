@@ -11,17 +11,17 @@
                 <Font name="System Bold" size="14.0" />
             </font>
         </Text>
-        <RadioButton layoutX="160.0" layoutY="50.0" mnemonicParsing="false" onAction="#onInHouse" selected="true" text="In-House">
+        <RadioButton fx:id="inHouseRadio" layoutX="160.0" layoutY="50.0" mnemonicParsing="false" onAction="#onInHouse" selected="true" text="In-House">
          <toggleGroup>
             <ToggleGroup fx:id="addPartGroup" />
          </toggleGroup></RadioButton>
-        <RadioButton layoutX="279.0" layoutY="50.0" mnemonicParsing="false" onAction="#onOutsourced" text="Outsourced" toggleGroup="$addPartGroup" />
+        <RadioButton fx:id="outsourcedRadio" layoutX="279.0" layoutY="50.0" mnemonicParsing="false" onAction="#onOutsourced" text="Outsourced" toggleGroup="$addPartGroup" />
         <TextField accessibleText="ID Disabled" disable="true" layoutX="181.0" layoutY="115.0" prefHeight="25.0" prefWidth="97.0" promptText="Auto Gen- Disabled" />
         <Label accessibleText="ID" layoutX="85.0" layoutY="119.0" text="ID" />
         <Label accessibleText="ID" layoutX="85.0" layoutY="156.0" text="Name" />
         <TextField fx:id="nameInput" accessibleText="Name" layoutX="181.0" layoutY="152.0" prefHeight="25.0" prefWidth="97.0" />
         <Label accessibleText="ID" layoutX="84.0" layoutY="195.0" text="Inv" />
-        <TextField fx:id="InvInput" accessibleText="Inventory" layoutX="180.0" layoutY="191.0" prefHeight="25.0" prefWidth="97.0" />
+        <TextField fx:id="stockInput" accessibleText="Inventory" layoutX="180.0" layoutY="191.0" prefHeight="25.0" prefWidth="97.0" />
         <Label accessibleText="Price/Cost" layoutX="84.0" layoutY="239.0" text="Price/Cost" />
         <TextField fx:id="priceInput" accessibleText="Inventory" layoutX="180.0" layoutY="235.0" prefHeight="25.0" prefWidth="97.0" />
         <Label accessibleText="Max Quantity" layoutX="83.0" layoutY="281.0" text="Max" />
