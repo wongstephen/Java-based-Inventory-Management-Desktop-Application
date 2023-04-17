@@ -1,15 +1,14 @@
 package ims.stephenwongc482.controller;
 
-import ims.stephenwongc482.model.Inventory;
+import ims.stephenwongc482.model.*;
 
-import ims.stephenwongc482.model.Part;
-import ims.stephenwongc482.model.Product;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -19,6 +18,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import static ims.stephenwongc482.controller.ModifyPartController.setPartToModify;
 import static ims.stephenwongc482.controller.NavController.navigate;
 
 public class MainController implements Initializable {
@@ -161,7 +161,27 @@ public class MainController implements Initializable {
      */
     @FXML
     void handleMainModifyPartBtn(ActionEvent actionEvent) throws IOException {
-        navigate(actionEvent, "modifyPart");
+        try {
+            Part selectedPart;
+            if (allPartTable.getSelectionModel().getSelectedItem() instanceof Outsourced) {
+                selectedPart = (Outsourced) allPartTable.getSelectionModel().getSelectedItem();
+            } else {
+                selectedPart = (InHouse) allPartTable.getSelectionModel().getSelectedItem();
+            }
+            if(selectedPart == null) {
+                throw new NullPointerException();
+            }
+            setPartToModify(selectedPart);
+            navigate(actionEvent, "modifyPart");
+        } catch (NullPointerException e) {
+            System.out.println("No part selected");
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("No part selected");
+            alert.setContentText("Please select a part to modify");
+            alert.showAndWait();
+
+        }
     }
 
     @FXML
@@ -186,6 +206,7 @@ public class MainController implements Initializable {
      */
     @FXML
     void handleMainModifyProductBtn(ActionEvent actionEvent) throws IOException {
+
         navigate(actionEvent, "modifyProduct");
     }
 

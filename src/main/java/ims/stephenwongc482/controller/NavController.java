@@ -17,16 +17,21 @@ public class NavController {
 
     // RUNTIME ERROR when there is no IOException. GetClass().getResource did not work. Used code from new project template Main.class.getResource to get it functional.
     // FUTURE ENHANCEMENT refactor in to try catch block.
+
     /**
      * navigates to desired location when called. Used for navigation between screens.
      *
      * @param actionEvent - button on main screen, location - string of location to navigate to
      */
     static void navigate(ActionEvent actionEvent, String location) throws IOException {
-        stage = (Stage)((Button)actionEvent.getSource()).getScene().getWindow();
-        scene = FXMLLoader.load(Main.class.getResource("view/"+location+".fxml"));
-        stage.setScene(new Scene(scene));
-        stage.show();
+        try {
+            stage = (Stage) ((Button) actionEvent.getSource()).getScene().getWindow();
+            scene = FXMLLoader.load(Main.class.getResource("view/" + location + ".fxml"));
+            stage.setScene(new Scene(scene));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 }
