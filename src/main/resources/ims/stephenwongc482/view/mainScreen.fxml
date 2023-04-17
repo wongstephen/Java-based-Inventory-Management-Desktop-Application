@@ -41,8 +41,8 @@
                         <Font name="System Bold" size="14.0"/>
                     </font>
                 </Label>
-                <TextField layoutX="303.0" layoutY="33.0" prefHeight="16.0" prefWidth="157.0"
-                           promptText="Search by Part ID or Name">
+                <TextField fx:id="partSearchInput" layoutX="303.0" layoutY="33.0" onAction="#handleMainSearchPartSubmit"
+                           prefHeight="16.0" prefWidth="157.0" promptText="Search by Part ID or Name">
                     <font>
                         <Font size="11.0"/>
                     </font>
@@ -66,8 +66,9 @@
                         <TableColumn fx:id="prodPriceCol" prefWidth="141.3333740234375" text="Price/ Cost per Unit"/>
                     </columns>
                 </TableView>
-                <TextField layoutX="280.0" layoutY="33.0" onAction="#handleMainSearchProductSubmit" prefHeight="25.0"
-                           prefWidth="180.0" promptText="Search by Product ID or Name">
+                <TextField fx:id="productSearchInput" layoutX="280.0" layoutY="33.0"
+                           onAction="#handleMainSearchProductSubmit" prefHeight="25.0" prefWidth="180.0"
+                           promptText="Search by Product ID or Name">
                     <font>
                         <Font size="11.0"/>
                     </font>

@@ -4,8 +4,8 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 public class Inventory {
-    public static int partIdCount = 1;
-    public static int productIdCount = 1;
+    public static int partIdCount = 5;
+    public static int productIdCount = 5;
     private static final ObservableList<Part> allParts = FXCollections.observableArrayList();
     private static final ObservableList<Product> allProducts = FXCollections.observableArrayList();
 
@@ -37,7 +37,7 @@ public class Inventory {
     }
 
     /**
-     * Gets all Parts
+     * Gets all products
      *
      * @return all products
      */

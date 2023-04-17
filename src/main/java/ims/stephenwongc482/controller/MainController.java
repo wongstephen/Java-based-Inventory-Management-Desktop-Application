@@ -1,15 +1,18 @@
 package ims.stephenwongc482.controller;
 
-import ims.stephenwongc482.model.InHouse;
 import ims.stephenwongc482.model.Inventory;
+
 import ims.stephenwongc482.model.Part;
 import ims.stephenwongc482.model.Product;
 import javafx.application.Platform;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.io.IOException;
@@ -21,36 +24,28 @@ import static ims.stephenwongc482.controller.NavController.navigate;
 public class MainController implements Initializable {
 
 
-    public TableView allPartTable;
-    public TableColumn partIdCol;
-    public TableColumn partNameCol;
-    public TableColumn partStockCol;
-    public TableColumn partPriceCol;
-    public TableView allProductTable;
     public TableColumn prodIdCol;
     public TableColumn prodNameCol;
     public TableColumn prodStockCol;
     public TableColumn prodPriceCol;
-    private boolean firstTime = true;
 
-    void initialData() {
-        Part part = new InHouse(1, "Part 1", 1.00, 1, 1, 1, 1);
-        Part part2 = new InHouse(2, "Part 2", 2.00, 2, 2, 2, 2);
-        Part part3 = new InHouse(3, "Part 3", 3.00, 3, 3, 3, 3);
-        Part part4 = new InHouse(4, "Part 4", 4.00, 4, 4, 4, 4);
-        Inventory.addPart(part);
-        Inventory.addPart(part2);
-        Inventory.addPart(part3);
-        Inventory.addPart(part4);
-        Product product = new Product(1, "Product 1", 1.00, 1, 1, 1);
-        Product product2 = new Product(2, "Product 2", 2.00, 2, 2, 2);
-        Product product3 = new Product(3, "Product 3", 3.00, 3, 3, 3);
-        Product product4 = new Product(4, "Product 4", 4.00, 4, 4, 4);
-        Inventory.addProduct(product);
-        Inventory.addProduct(product2);
-        Inventory.addProduct(product3);
-        Inventory.addProduct(product4);
-        allPartTable.setItems(Inventory.getAllParts());
+    public TableColumn partIdCol;
+    public TableColumn partNameCol;
+    public TableColumn partStockCol;
+    public TableColumn partPriceCol;
+
+    public TableView allProductTable;
+    public TableView allPartTable;
+    public TextField partSearchInput;
+    public TextField productSearchInput;
+
+    /**
+     * initalizes app
+     *
+     * @param url - url
+     */
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
         /**
          * RUNTIME ERROR: java.lang.NullPointerException
          *
@@ -66,36 +61,66 @@ public class MainController implements Initializable {
         prodStockCol.setCellValueFactory(new PropertyValueFactory<>("stock"));
         prodPriceCol.setCellValueFactory(new PropertyValueFactory<>("price"));
         allProductTable.setItems(Inventory.getAllProducts());
-
-
+        allPartTable.setItems(Inventory.getAllParts());
     }
 
+
     /**
-     * initalizes app
+     * creates a list of parts that match the search criteria
      *
-     * @param url - url
+     * @param partialName - partial name or id of part
      */
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        System.out.println("Main Screen Loaded");
-        if (firstTime) {
-            initialData();
-            firstTime = false;
-
+    private ObservableList<Part> searchPartByNameOrID(String partialName) {
+        if (partialName == null || partialName.isEmpty()) {
+            return Inventory.getAllParts();
+        } else {
+            ObservableList<Part> searchResults = FXCollections.observableArrayList();
+            for (Part part : Inventory.getAllParts()) {
+                if (part.getName().contains(partialName) || Integer.toString(part.getId()).contains(partialName)) {
+                    searchResults.add(part);
+                }
+            }
+            return searchResults;
         }
-
     }
-
     /**
-     * TODO Part Search
+     * handles search input on main screen and searches for part by name or id
      *
      * @param actionEvent - add product button on main screen
      */
     @FXML
     void handleMainSearchPartSubmit(ActionEvent actionEvent) {
-        System.out.println("Enter Search Part Pressed");
+        String partialName = partSearchInput.getText();
+        allPartTable.setItems(searchPartByNameOrID(partialName));
     }
-
+    /**
+     * creates a list of parts that match the search criteria
+     *
+     * @param partialName - partial name or id of part
+     */
+    private ObservableList<Product> searchProductByNameOrID(String partialName) {
+        if (partialName == null || partialName.isEmpty()) {
+            return Inventory.getAllProducts();
+        } else {
+            ObservableList<Product> searchResults = FXCollections.observableArrayList();
+            for (Product product : Inventory.getAllProducts()) {
+                if (product.getName().contains(partialName) || Integer.toString(product.getId()).contains(partialName)) {
+                    searchResults.add(product);
+                }
+            }
+            return searchResults;
+        }
+    }
+    /**
+     * handles search input on main screen and searches for part by name or id
+     *
+     * @param actionEvent - add product button on main screen
+     */
+    @FXML
+    void handleMainSearchProductSubmit(ActionEvent actionEvent) {
+        String partialName = productSearchInput.getText();
+        allProductTable.setItems(searchProductByNameOrID(partialName));
+    }
     /**
      * handles add part button on main screen click and navigates to add part screen
      *
@@ -119,16 +144,6 @@ public class MainController implements Initializable {
     @FXML
     void handleMainDeletePartBtn(ActionEvent actionEvent) {
         System.out.println("Main Delete Clicked");
-    }
-
-    /**
-     * TODO Product Search
-     *
-     * @param actionEvent - add product button on main screen
-     */
-    @FXML
-    void handleMainSearchProductSubmit(ActionEvent actionEvent) {
-        System.out.println("Enter Search Part Pressed");
     }
 
     /**
