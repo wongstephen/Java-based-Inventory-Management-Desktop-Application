@@ -11,6 +11,8 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+import static ims.stephenwongc482.model.Inventory.*;
+
 
 public class Main extends Application {
 
@@ -30,22 +32,19 @@ public class Main extends Application {
     }
 
     public static void initialData() {
-        Part part = new InHouse(1, "Part 1", 1.00, 1, 1, 1, 1);
-        Part part2 = new InHouse(2, "Part 2", 2.00, 2, 2, 2, 2);
-        Part part3 = new InHouse(3, "Part 3", 3.00, 3, 3, 3, 3);
-        Part part4 = new InHouse(4, "Part 4", 4.00, 4, 4, 4, 4);
+        //init parts data
+        Part part = new InHouse(getPartIdCount(), "Brakes", 12.99, 15, 1, 20, 1);
+        Part part2 = new InHouse(getPartIdCount(), "Tire", 14.99, 15, 1, 20, 2);
+        Part part3 = new InHouse(getPartIdCount(), "Rim", 56.99, 15, 1, 20, 3);
         Inventory.addPart(part);
         Inventory.addPart(part2);
         Inventory.addPart(part3);
-        Inventory.addPart(part4);
-        Product product = new Product(1, "Product 1", 1.00, 1, 1, 1);
-        Product product2 = new Product(2, "Product 2", 2.00, 2, 2, 2);
-        Product product3 = new Product(3, "Product 3", 3.00, 3, 3, 3);
-        Product product4 = new Product(4, "Product 4", 4.00, 4, 4, 4);
+        //init products data
+        Product product = new Product(getProductIdCount(), "Giant Bicycle", 299.99, 15, 1, 20);
+        Product product2 = new Product(getProductIdCount(), "Scott Bicycle", 199.99, 15, 1, 20);
+        Product product3 = new Product(getProductIdCount(), "GT Bike", 99.99, 15, 1, 20);
         Inventory.addProduct(product);
         Inventory.addProduct(product2);
         Inventory.addProduct(product3);
-        Inventory.addProduct(product4);
-
     }
 }

@@ -15,8 +15,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import static ims.stephenwongc482.controller.NavController.navigate;
-import static ims.stephenwongc482.model.Inventory.partIdCount;
-import static ims.stephenwongc482.model.Inventory.productIdCount;
+import static ims.stephenwongc482.model.Inventory.*;
 
 public class AddProductController implements Initializable {
 
@@ -140,8 +139,7 @@ public class AddProductController implements Initializable {
             exceptionInvMinMax = "";
         }
         if (valid) { //if all fields are valid, adds part to inventory
-            Product product = new Product(productIdCount, name, price, stock, min, max);
-            partIdCount++;
+            Product product = new Product(getProductIdCount(), name, price, stock, min, max);
             Inventory.addProduct(product);
             navigate(actionEvent, "mainScreen");
         } else {

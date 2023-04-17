@@ -14,6 +14,7 @@ import java.io.IOException;
 import java.util.Scanner;
 
 import static ims.stephenwongc482.controller.NavController.navigate;
+import static ims.stephenwongc482.model.Inventory.getPartIdCount;
 import static ims.stephenwongc482.model.Inventory.partIdCount;
 
 
@@ -125,13 +126,11 @@ public class AddPartController {
         }
         if (valid) { //if all fields are valid, adds part to inventory
             if (inHouse) { //checks if part is in house or outsourced
-                Part part = new InHouse(partIdCount, name, price, stock, min, max, machineId);
-                partIdCount++;
+                Part part = new InHouse(getPartIdCount(), name, price, stock, min, max, machineId);
                 Inventory.addPart(part);
             } else {
                 companyName = sourceInput.getText();
-                Part part = new Outsourced(partIdCount, name, price, stock, min, max, companyName);
-                partIdCount++;
+                Part part = new Outsourced(getPartIdCount(), name, price, stock, min, max, companyName);
                 Inventory.addPart(part);
             }
             navigate(actionEvent, "mainScreen");

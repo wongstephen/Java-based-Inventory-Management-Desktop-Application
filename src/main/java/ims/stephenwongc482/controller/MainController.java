@@ -70,13 +70,13 @@ public class MainController implements Initializable {
      *
      * @param partialName - partial name or id of part
      */
-    private ObservableList<Part> searchPartByNameOrID(String partialName) {
+    private ObservableList<Part> searchPartByName(String partialName) {
         if (partialName == null || partialName.isEmpty()) {
             return Inventory.getAllParts();
         } else {
             ObservableList<Part> searchResults = FXCollections.observableArrayList();
             for (Part part : Inventory.getAllParts()) {
-                if (part.getName().contains(partialName) || Integer.toString(part.getId()).contains(partialName)) {
+                if (part.getName().contains(partialName)) {
                     searchResults.add(part);
                 }
             }
@@ -90,21 +90,33 @@ public class MainController implements Initializable {
      */
     @FXML
     void handleMainSearchPartSubmit(ActionEvent actionEvent) {
-        String partialName = partSearchInput.getText();
-        allPartTable.setItems(searchPartByNameOrID(partialName));
+        allPartTable.setItems(Inventory.getAllParts());
+        String searchInputText = partSearchInput.getText();
+        try {
+            if (Integer.parseInt(searchInputText) > 0 && Integer.parseInt(searchInputText) < Inventory.getAllParts().size() + 1) {
+                allPartTable.getSelectionModel().select(Integer.parseInt(searchInputText)-1);
+            } else {
+                System.out.println("Part not found");
+                allPartTable.getSelectionModel().clearSelection();
+                allPartTable.setItems(searchPartByName(searchInputText));
+            }
+        } catch (NumberFormatException e) {
+            allPartTable.getSelectionModel().clearSelection();
+            allPartTable.setItems(searchPartByName(searchInputText));
+        }
     }
     /**
      * creates a list of parts that match the search criteria
      *
-     * @param partialName - partial name or id of part
+     * @param partialName - partial name
      */
-    private ObservableList<Product> searchProductByNameOrID(String partialName) {
+    private ObservableList<Product> searchProductByName(String partialName) {
         if (partialName == null || partialName.isEmpty()) {
             return Inventory.getAllProducts();
         } else {
             ObservableList<Product> searchResults = FXCollections.observableArrayList();
             for (Product product : Inventory.getAllProducts()) {
-                if (product.getName().contains(partialName) || Integer.toString(product.getId()).contains(partialName)) {
+                if (product.getName().contains(partialName)) {
                     searchResults.add(product);
                 }
             }
@@ -118,8 +130,19 @@ public class MainController implements Initializable {
      */
     @FXML
     void handleMainSearchProductSubmit(ActionEvent actionEvent) {
-        String partialName = productSearchInput.getText();
-        allProductTable.setItems(searchProductByNameOrID(partialName));
+        allProductTable.setItems(Inventory.getAllProducts());
+        String searchInputText = productSearchInput.getText();
+        try {
+            if (Integer.parseInt(searchInputText) > 0 && Integer.parseInt(searchInputText) < Inventory.getAllProducts().size() + 1) {
+                allProductTable.getSelectionModel().select(Integer.parseInt(searchInputText)-1);
+            } else {
+                allProductTable.getSelectionModel().clearSelection();
+                allProductTable.setItems(searchProductByName(searchInputText));
+            }
+        } catch (NumberFormatException e) {
+            allProductTable.getSelectionModel().clearSelection();
+            allProductTable.setItems(searchProductByName(searchInputText));
+        }
     }
     /**
      * handles add part button on main screen click and navigates to add part screen
