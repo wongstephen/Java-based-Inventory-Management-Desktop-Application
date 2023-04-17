@@ -3,6 +3,7 @@ package ims.stephenwongc482.model;
 import javafx.beans.Observable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableArray;
+import javafx.collections.ObservableList;
 
 public class Product {
     private int id;
@@ -11,7 +12,7 @@ public class Product {
     private int stock;
     private int min;
     private int max;
-//    private associatedProduct<Part> = FXCollections.observableArrayList();
+    private ObservableList<Part> associatedParts = FXCollections.observableArrayList();
 
     public Product(int id, String name, double price, int stock, int min, int max) {
         this.id = id;
@@ -128,5 +129,17 @@ public class Product {
      */
     public void setMax(int max) {
         this.max = max;
+    }
+
+    public void addAssociatedPart(Part part) {
+        associatedParts.add(part);
+    }
+
+    public void deleteAssociatedPart(Part part) {
+        associatedParts.remove(part);
+    }
+
+    public ObservableList<Part> getAllAssociatedParts() {
+        return associatedParts;
     }
 }

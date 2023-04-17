@@ -6,10 +6,16 @@
   <component name="ChangeListManager">
     <list default="true" id="6a6575af-c640-47b6-9bd4-ec222f893675" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ims/stephenwongc482/controller/AddPartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ims/stephenwongc482/controller/AddPartController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ims/stephenwongc482/controller/AddProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ims/stephenwongc482/controller/AddProductController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ims/stephenwongc482/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ims/stephenwongc482/controller/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ims/stephenwongc482/controller/ModifyPartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ims/stephenwongc482/controller/ModifyPartController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ims/stephenwongc482/controller/NavController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ims/stephenwongc482/controller/NavController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ims/stephenwongc482/controller/ModifyProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ims/stephenwongc482/controller/ModifyProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ims/stephenwongc482/model/Inventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ims/stephenwongc482/model/Inventory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ims/stephenwongc482/model/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ims/stephenwongc482/model/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ims/stephenwongc482/view/addPart.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ims/stephenwongc482/view/addPart.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ims/stephenwongc482/view/mainScreen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ims/stephenwongc482/view/mainScreen.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/ims/stephenwongc482/view/modifyPart.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ims/stephenwongc482/view/modifyPart.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ims/stephenwongc482/view/modifyProduct.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ims/stephenwongc482/view/modifyProduct.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,6 +46,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
+    "extract.method.default.visibility": "private",
     "last_opened_file_path": "C:/Users/Num Num/Desktop/c486/Code Samples (download folder)-20230414T163421Z-001/Code Samples (download folder)/ModifyTableView",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -76,7 +83,7 @@
       <workItem from="1681408227863" duration="5493000" />
       <workItem from="1681316488666" duration="5224000" />
       <workItem from="1681524172805" duration="6594000" />
-      <workItem from="1681748057426" duration="4833000" />
+      <workItem from="1681748057426" duration="10878000" />
     </task>
     <servers />
   </component>

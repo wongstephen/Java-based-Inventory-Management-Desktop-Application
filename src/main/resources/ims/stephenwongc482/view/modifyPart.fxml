@@ -1,37 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="621.0" prefWidth="551.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ims.stephenwongc482.controller.ModifyPartController">
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+            prefHeight="621.0" prefWidth="551.0" xmlns="http://javafx.com/javafx/17.0.2-ea"
+            fx:controller="ims.stephenwongc482.controller.ModifyPartController">
     <children>
         <Text layoutX="62.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Modify Part">
             <font>
-                <Font name="System Bold" size="14.0" />
+                <Font name="System Bold" size="14.0"/>
             </font>
         </Text>
-        <RadioButton fx:id="inHouseRadio" layoutX="160.0" layoutY="50.0" mnemonicParsing="false" onAction="#onInHouse" selected="true" text="In-House">
+        <RadioButton fx:id="inHouseRadio" layoutX="160.0" layoutY="50.0" mnemonicParsing="false" onAction="#onInHouse"
+                     selected="true" text="In-House">
             <toggleGroup>
-                <ToggleGroup fx:id="modifytPartGroup" />
+                <ToggleGroup fx:id="modifytPartGroup"/>
             </toggleGroup>
         </RadioButton>
-        <RadioButton fx:id="outsourcedRadio" layoutX="279.0" layoutY="50.0" mnemonicParsing="false" onAction="#onOutsourced" text="Outsourced" toggleGroup="$modifytPartGroup" />
-        <TextField fx:id="modifyIdInput" accessibleText="ID Disabled" disable="true" editable="false" layoutX="181.0" layoutY="115.0" prefHeight="25.0" prefWidth="97.0" />
-        <Label accessibleText="ID" layoutX="85.0" layoutY="119.0" text="ID" />
-        <Label accessibleText="ID" layoutX="85.0" layoutY="156.0" text="Name" />
-        <TextField fx:id="modifyNameInput" accessibleText="Name" layoutX="181.0" layoutY="152.0" prefHeight="25.0" prefWidth="97.0" />
-        <Label accessibleText="ID" layoutX="84.0" layoutY="195.0" text="Inv" />
-        <TextField fx:id="modifyStockInput" accessibleText="Inventory" layoutX="180.0" layoutY="191.0" prefHeight="25.0" prefWidth="97.0" />
-        <Label accessibleText="Price/Cost" layoutX="84.0" layoutY="239.0" text="Price/Cost" />
-        <TextField fx:id="modifyPriceInput" accessibleText="Inventory" layoutX="180.0" layoutY="235.0" prefHeight="25.0" prefWidth="97.0" />
-        <Label accessibleText="Max Quantity" layoutX="83.0" layoutY="281.0" text="Max" />
-        <TextField fx:id="modifyMaxInput" accessibleText="Inventory" layoutX="179.0" layoutY="277.0" prefHeight="25.0" prefWidth="97.0" />
-        <Label fx:id="sourceLabel" accessibleText="machineId" layoutX="82.0" layoutY="327.0" text="Machine ID" />
-        <TextField fx:id="modifySourceInput" accessibleText="Inventory" layoutX="178.0" layoutY="323.0" prefHeight="25.0" prefWidth="97.0" />
-        <Label accessibleText="Minimun Quantity" layoutX="321.0" layoutY="281.0" text="Min" />
-        <TextField fx:id="modifyMinInput" accessibleText="Inventory" layoutX="358.0" layoutY="277.0" prefHeight="25.0" prefWidth="97.0" />
-        <Button layoutX="301.0" layoutY="378.0" mnemonicParsing="false" onAction="#handleSaveBtn" text="Save" />
-        <Button layoutX="362.0" layoutY="378.0" mnemonicParsing="false" onAction="#handleCancelBtn" text="Cancel" />
+        <RadioButton fx:id="outsourcedRadio" layoutX="279.0" layoutY="50.0" mnemonicParsing="false"
+                     onAction="#onOutsourced" text="Outsourced" toggleGroup="$modifytPartGroup"/>
+        <TextField fx:id="modifyIdInput" accessibleText="ID Disabled" disable="true" editable="false" layoutX="181.0"
+                   layoutY="115.0" prefHeight="25.0" prefWidth="97.0"/>
+        <Label accessibleText="ID" layoutX="85.0" layoutY="119.0" text="ID"/>
+        <Label accessibleText="ID" layoutX="85.0" layoutY="156.0" text="Name"/>
+        <TextField fx:id="modifyNameInput" accessibleText="Name" layoutX="181.0" layoutY="152.0" prefHeight="25.0"
+                   prefWidth="97.0"/>
+        <Label accessibleText="ID" layoutX="84.0" layoutY="195.0" text="Inv"/>
+        <TextField fx:id="modifyStockInput" accessibleText="Inventory" layoutX="180.0" layoutY="191.0" prefHeight="25.0"
+                   prefWidth="97.0"/>
+        <Label accessibleText="Price/Cost" layoutX="84.0" layoutY="239.0" text="Price/Cost"/>
+        <TextField fx:id="modifyPriceInput" accessibleText="Inventory" layoutX="180.0" layoutY="235.0" prefHeight="25.0"
+                   prefWidth="97.0"/>
+        <Label accessibleText="Max Quantity" layoutX="83.0" layoutY="281.0" text="Max"/>
+        <TextField fx:id="modifyMaxInput" accessibleText="Inventory" layoutX="179.0" layoutY="277.0" prefHeight="25.0"
+                   prefWidth="97.0"/>
+        <Label fx:id="sourceLabel" accessibleText="machineId" layoutX="82.0" layoutY="327.0" text="Machine ID"/>
+        <TextField fx:id="modifySourceInput" accessibleText="Inventory" layoutX="178.0" layoutY="323.0"
+                   prefHeight="25.0" prefWidth="97.0"/>
+        <Label accessibleText="Minimun Quantity" layoutX="321.0" layoutY="281.0" text="Min"/>
+        <TextField fx:id="modifyMinInput" accessibleText="Inventory" layoutX="358.0" layoutY="277.0" prefHeight="25.0"
+                   prefWidth="97.0"/>
+        <Button layoutX="301.0" layoutY="378.0" mnemonicParsing="false" onAction="#handleSaveBtn" text="Save"/>
+        <Button layoutX="362.0" layoutY="378.0" mnemonicParsing="false" onAction="#handleCancelBtn" text="Cancel"/>
     </children>
 </AnchorPane>

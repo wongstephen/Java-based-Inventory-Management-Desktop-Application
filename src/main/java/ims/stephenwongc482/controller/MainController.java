@@ -8,10 +8,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.io.IOException;
@@ -19,7 +16,10 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import static ims.stephenwongc482.controller.ModifyPartController.setPartToModify;
+import static ims.stephenwongc482.controller.ModifyProductController.setProductToModify;
 import static ims.stephenwongc482.controller.NavController.navigate;
+import static ims.stephenwongc482.model.Inventory.deletePart;
+import static ims.stephenwongc482.model.Inventory.deleteProduct;
 
 public class MainController implements Initializable {
 
@@ -38,6 +38,7 @@ public class MainController implements Initializable {
     public TableView allPartTable;
     public TextField partSearchInput;
     public TextField productSearchInput;
+
 
     /**
      * initalizes app
@@ -184,9 +185,48 @@ public class MainController implements Initializable {
         }
     }
 
+    /**
+     * handles delete part button
+     *
+     * @param actionEvent - delete part button on main screen
+     */
     @FXML
     void handleMainDeletePartBtn(ActionEvent actionEvent) {
+        try {
+            Part selectedPart = (Part) allPartTable.getSelectionModel().getSelectedItem();
+            deletePart(selectedPart);
+        }
+        catch (NullPointerException e) {
+            System.out.println("No part selected");
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("No part selected");
+            alert.setContentText("Please select a part to delete");
+            alert.showAndWait();
+        }
         System.out.println("Main Delete Clicked");
+    }
+    /**
+     * handles delete part button
+     *
+     * @param actionEvent - delete part button on main screen
+     */
+    @FXML
+    void handleMainDeleteProductBtn(ActionEvent actionEvent) {
+
+        try {
+            Product selectedProduct = (Product) allProductTable.getSelectionModel().getSelectedItem();
+            deleteProduct(selectedProduct);
+            System.out.println("Main Delete Clicked");
+        }
+        catch (NullPointerException e) {
+            System.out.println("No product selected");
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("No product selected");
+            alert.setContentText("Please select a product to delete");
+            alert.showAndWait();
+        }
     }
 
     /**
@@ -206,8 +246,23 @@ public class MainController implements Initializable {
      */
     @FXML
     void handleMainModifyProductBtn(ActionEvent actionEvent) throws IOException {
+        try {
+            Product selectedProduct;
+            selectedProduct = (Product) allProductTable.getSelectionModel().getSelectedItem();
+            if(selectedProduct == null) {
+                throw new NullPointerException();
+            }
+            setProductToModify(selectedProduct);
+            navigate(actionEvent, "modifyProduct");
+        } catch (NullPointerException e) {
+            System.out.println("No product selected");
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("No product selected");
+            alert.setContentText("Please select a product to modify");
+            alert.showAndWait();
 
-        navigate(actionEvent, "modifyProduct");
+        }
     }
 
     /**

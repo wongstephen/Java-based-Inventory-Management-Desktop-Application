@@ -6,19 +6,19 @@ import ims.stephenwongc482.model.Outsourced;
 import ims.stephenwongc482.model.Part;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 
 import java.io.IOException;
-import java.util.Scanner;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 import static ims.stephenwongc482.controller.NavController.navigate;
 import static ims.stephenwongc482.model.Inventory.getPartIdCount;
-import static ims.stephenwongc482.model.Inventory.partIdCount;
 
-
-public class AddPartController {
+public class AddPartController implements Initializable {
     public TextField nameInput;
     public TextField stockInput;
     public TextField priceInput;
@@ -49,9 +49,6 @@ public class AddPartController {
     public String exceptionMachineId = "";
     public String exceptionMinMax = "";
     public String exceptionInvMinMax = "";
-
-
-    Scanner sc = new Scanner(System.in);
 
     /**
      * Saves new part to inventory when save button is clicked
@@ -173,4 +170,8 @@ public class AddPartController {
     }
 
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
+    }
 }

@@ -49,10 +49,7 @@ public class AddProductController implements Initializable {
     private String exceptionMinMax  = "";
     private String exceptionInvMinMax  = "";
 
-
-
-
-    /**
+     /**
      * cancels addition of new product and navigates back to main screen
      *
      * @param actionEvent - button on product screen
@@ -62,11 +59,6 @@ public class AddProductController implements Initializable {
         navigate(actionEvent, "mainScreen");
     }
 
-    /**
-     * adds selected part to associated parts table
-     *
-     * @param actionEvent - button on product screen
-     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         allPartTable.setItems(Inventory.getAllParts());

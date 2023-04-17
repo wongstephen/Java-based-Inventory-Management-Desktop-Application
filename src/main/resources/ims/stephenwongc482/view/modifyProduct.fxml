@@ -13,22 +13,31 @@
                 <Font name="System Bold" size="14.0" />
             </font>
         </Text>
-        <TextField accessibleText="ID Disabled" disable="true" editable="false" layoutX="181.0" layoutY="115.0" prefHeight="25.0" prefWidth="170.0" text="Placeholder Int" />
+        <TextField fx:id="modifyProductIdInput" accessibleText="ID Disabled" disable="true" editable="false" layoutX="181.0" layoutY="115.0" prefHeight="25.0" prefWidth="170.0" text="Placeholder Int" />
         <Label accessibleText="ID" layoutX="85.0" layoutY="119.0" text="ID" />
         <Label accessibleText="ID" layoutX="85.0" layoutY="156.0" text="Name" />
-        <TextField accessibleText="Name" layoutX="181.0" layoutY="152.0" prefHeight="25.0" prefWidth="170.0" />
+        <TextField fx:id="modifyProductNameInput" accessibleText="Name" layoutX="181.0" layoutY="152.0" prefHeight="25.0" prefWidth="170.0" />
         <Label accessibleText="ID" layoutX="84.0" layoutY="195.0" text="Inv" />
-        <TextField accessibleText="Inventory" layoutX="180.0" layoutY="191.0" prefHeight="25.0" prefWidth="97.0" />
+        <TextField fx:id="modifyProductStockInput" accessibleText="Inventory" layoutX="180.0" layoutY="191.0" prefHeight="25.0" prefWidth="97.0" />
         <Label accessibleText="Price/Cost" layoutX="84.0" layoutY="239.0" text="Price" />
-        <TextField accessibleText="Inventory" layoutX="180.0" layoutY="235.0" prefHeight="25.0" prefWidth="97.0" />
+        <TextField fx:id="modifyProductPrice" accessibleText="Price" layoutX="180.0" layoutY="235.0" prefHeight="25.0" prefWidth="97.0" />
         <Label accessibleText="Max Quantity" layoutX="83.0" layoutY="281.0" text="Max" />
-        <TextField accessibleText="Inventory" layoutX="179.0" layoutY="277.0" prefHeight="25.0" prefWidth="97.0" />
+        <TextField fx:id="modifyProductMax" accessibleText="Max" layoutX="179.0" layoutY="277.0" prefHeight="25.0" prefWidth="97.0" />
         <Label accessibleText="Minimun Quantity" layoutX="321.0" layoutY="281.0" text="Min" />
-        <TextField accessibleText="Inventory" layoutX="358.0" layoutY="277.0" prefHeight="25.0" prefWidth="97.0" />
+        <TextField fx:id="modifyProductMin" accessibleText="Min" layoutX="358.0" layoutY="277.0" prefHeight="25.0" prefWidth="97.0" />
         <Button layoutX="862.0" layoutY="543.0" mnemonicParsing="false" onAction="#handleSaveBtn" text="Save" />
         <Button layoutX="946.0" layoutY="543.0" mnemonicParsing="false" onAction="#handleCancelBtn" text="Cancel" />
         <TextField layoutX="841.0" layoutY="52.0" prefHeight="25.0" prefWidth="179.0" promptText="Search By Part ID or Name" />
-        <TableView layoutX="621.0" layoutY="107.0" prefHeight="167.0" prefWidth="400.0">
+        <TableView fx:id="allPartTable" layoutX="621.0" layoutY="107.0" prefHeight="167.0" prefWidth="400.0">
+            <columns>
+                <TableColumn fx:id="allPartIdCol" prefWidth="75.0" text="Part ID" />
+                <TableColumn fx:id="allPartNameCol" prefWidth="75.0" text="Part Name" />
+                <TableColumn fx:id="allPartStockCol" prefWidth="114.00006103515625" text="Inventory Level" />
+                <TableColumn fx:id="allPartPriceCol" prefWidth="137.33334350585938" text="Price/ Cost per Unit" />
+            </columns>
+        </TableView>
+        <Button fx:id="handleAddAssPart" layoutX="934.0" layoutY="285.0" mnemonicParsing="false" text="Add" />
+        <TableView fx:id="assPartTable" layoutX="621.0" layoutY="323.0" prefHeight="167.0" prefWidth="400.0">
             <columns>
                 <TableColumn prefWidth="75.0" text="Part ID" />
                 <TableColumn prefWidth="75.0" text="Part Name" />
@@ -36,15 +45,6 @@
                 <TableColumn prefWidth="137.33334350585938" text="Price/ Cost per Unit" />
             </columns>
         </TableView>
-        <Button layoutX="934.0" layoutY="285.0" mnemonicParsing="false" text="Add" />
-        <TableView layoutX="621.0" layoutY="323.0" prefHeight="167.0" prefWidth="400.0">
-            <columns>
-                <TableColumn prefWidth="75.0" text="Part ID" />
-                <TableColumn prefWidth="75.0" text="Part Name" />
-                <TableColumn prefWidth="114.00006103515625" text="Inventory Level" />
-                <TableColumn prefWidth="137.33334350585938" text="Price/ Cost per Unit" />
-            </columns>
-        </TableView>
-        <Button layoutX="862.0" layoutY="505.0" mnemonicParsing="false" text="Remove Associated Part" />
+        <Button fx:id="handleRemoveAssPart" layoutX="862.0" layoutY="505.0" mnemonicParsing="false" text="Remove Associated Part" />
     </children>
 </AnchorPane>

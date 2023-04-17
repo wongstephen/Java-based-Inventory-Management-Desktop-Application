@@ -45,7 +45,22 @@ public class Inventory {
     public static ObservableList<Part> getAllParts() {
         return allParts;
     }
-
+    /**
+     * Deletes part
+     *
+     * @param selectedPart - part to be deleted
+     */
+    public static void deletePart(Part selectedPart) {
+        allParts.remove(selectedPart);
+    }
+    /**
+     * Deletes product
+     *
+     * @param selectedProduct - product be deleted
+     */
+    public static void deleteProduct(Product selectedProduct) {
+        allProducts.remove(selectedProduct);
+    }
     /**
      * Adds product
      *
