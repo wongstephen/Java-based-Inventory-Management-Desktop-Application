@@ -51,7 +51,6 @@ public class MainController implements Initializable {
         Inventory.addProduct(product3);
         Inventory.addProduct(product4);
         allPartTable.setItems(Inventory.getAllParts());
-        allProductTable.setItems(Inventory.getAllProducts());
         /**
          * RUNTIME ERROR: java.lang.NullPointerException
          *
@@ -66,6 +65,9 @@ public class MainController implements Initializable {
         prodNameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
         prodStockCol.setCellValueFactory(new PropertyValueFactory<>("stock"));
         prodPriceCol.setCellValueFactory(new PropertyValueFactory<>("price"));
+        allProductTable.setItems(Inventory.getAllProducts());
+
+
     }
 
     /**
