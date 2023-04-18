@@ -1,9 +1,11 @@
 package ims.stephenwongc482.model;
 
-/**
- * Inhouse Part class
- */
 
+/**
+ * InHouse class
+ *
+ * @author Stephen Wong
+ */
 public class InHouse extends Part{
     private int machineId;
 

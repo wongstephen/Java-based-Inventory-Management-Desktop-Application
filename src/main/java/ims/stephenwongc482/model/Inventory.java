@@ -3,6 +3,11 @@ package ims.stephenwongc482.model;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
+/**
+ * Inventory class
+ *
+ * @author Stephen Wong
+ */
 public class Inventory {
     private static final ObservableList<Part> allParts = FXCollections.observableArrayList();
     private static final ObservableList<Product> allProducts = FXCollections.observableArrayList();

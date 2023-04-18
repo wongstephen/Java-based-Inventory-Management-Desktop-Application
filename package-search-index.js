@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"m":"ims.stephenwongc482","l":"ims.stephenwongc482"},{"m":"ims.stephenwongc482","l":"ims.stephenwongc482.controller"},{"m":"ims.stephenwongc482","l":"ims.stephenwongc482.model"}];updateSearchResults();

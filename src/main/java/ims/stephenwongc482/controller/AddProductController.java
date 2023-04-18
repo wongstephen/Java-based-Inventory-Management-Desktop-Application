@@ -1,6 +1,8 @@
 package ims.stephenwongc482.controller;
 
 import ims.stephenwongc482.model.*;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -9,11 +11,16 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
+import static ims.stephenwongc482.controller.MainController.searchAlert;
 import static ims.stephenwongc482.controller.NavController.navigate;
 import static ims.stephenwongc482.model.Inventory.*;
 
+/**
+ * AddProductController class is used to add a product.
+ */
 public class AddProductController implements Initializable {
 
     public TableView allPartTable;
@@ -34,6 +41,7 @@ public class AddProductController implements Initializable {
     public TableColumn assPartName;
     public TableColumn assPartStock;
     public TableColumn assPartPrice;
+    public TextField partSearchInput;
 
     private String exceptionName = "";
     private Boolean valid = true;
@@ -52,6 +60,9 @@ public class AddProductController implements Initializable {
     private String exceptionMinMax  = "";
     private String exceptionInvMinMax  = "";
 
+    /**
+     * RUNTIME ERROR: I was trying to search for a product but it would not populate in the allParts table. I realized that I had copied the product search from another module and had not changed the reference names so it was giving errors at RUNTIME but not during prod.
+     */
     /**
      * cancels addition of new product and navigates back to main screen
      *
@@ -74,6 +85,49 @@ public class AddProductController implements Initializable {
         assPartName.setCellValueFactory(new PropertyValueFactory<>("name"));
         assPartStock.setCellValueFactory(new PropertyValueFactory<>("stock"));
         assPartPrice.setCellValueFactory(new PropertyValueFactory<>("price"));
+    }
+    /**
+     * creates a list of parts that match the search criteria
+     *
+     * @param partialName - partial name
+     */
+    private ObservableList<Part> searchPartByName(String partialName) {
+        if (partialName == null || partialName.isEmpty()) {
+            return Inventory.getAllParts();
+        } else {
+            ObservableList<Part> searchResults = FXCollections.observableArrayList();
+            for (Part part : Inventory.getAllParts()) {
+                if (part.getName().contains(partialName)) {
+                    searchResults.add(part);
+                }
+            }
+            return searchResults;
+        }
+    }
+    /**
+     * handles search input on main screen and searches for part by name or id
+     *
+     * @param actionEvent - add product button on main screen
+     */
+    @FXML
+    void handleMainSearchPartSubmit(ActionEvent actionEvent) {
+        allPartTable.setItems(getAllParts());
+        String searchInputText = partSearchInput.getText();
+        try {
+            if (Integer.parseInt(searchInputText) > 0 && Integer.parseInt(searchInputText) < getAllProducts().size() + 1) {
+                allPartTable.getSelectionModel().select(Integer.parseInt(searchInputText)-1);
+                return;
+            } else {
+                allPartTable.getSelectionModel().clearSelection();
+                allPartTable.setItems(searchPartByName(searchInputText));
+            }
+        } catch (NumberFormatException e) {
+            allPartTable.getSelectionModel().clearSelection();
+            allPartTable.setItems(searchPartByName(searchInputText));
+        }
+        if (allPartTable.getItems().size() == 0) {
+            searchAlert("Part");
+        }
     }
 
     /**
@@ -158,6 +212,23 @@ public class AddProductController implements Initializable {
         Part part = (Part) allPartTable.getSelectionModel().getSelectedItem();
         associatedPartTable.getItems().add(part);
 
+    }
+
+    /**
+     * removes associated part from product
+     * @param actionEvent
+     */
+    @FXML
+    public void handleRemoveAssPart(ActionEvent actionEvent) {
+        Alert alertConf = new Alert(Alert.AlertType.CONFIRMATION);
+        alertConf.setTitle("Associated Part");
+        alertConf.setHeaderText("Remove");
+        alertConf.setContentText("Are you sure you want to remove this part?");
+        Optional<ButtonType> result = alertConf.showAndWait();
+        if (result.get() != ButtonType.OK) {
+            return;
+        }
+        associatedPartTable.getItems().remove(associatedPartTable.getSelectionModel().getSelectedItem());
     }
 
 }

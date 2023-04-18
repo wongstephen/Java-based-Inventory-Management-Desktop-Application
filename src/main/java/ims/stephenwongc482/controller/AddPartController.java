@@ -64,7 +64,7 @@ public class AddPartController implements Initializable {
     void handleSaveBtn(ActionEvent actionEvent) throws IOException {
         inHouse = inHouseRadio.isSelected();
         if (nameInput.getText().equals("")) { //checks if name is empty
-            exceptionName = "Name cannot be empty\n";
+            exceptionName = "No data in name field\n";
             valid = false;
         } else {
             name = nameInput.getText();
@@ -73,14 +73,12 @@ public class AddPartController implements Initializable {
         try { //checks if stock is an integer
             stock = Integer.parseInt(stockInput.getText());
         } catch (NumberFormatException e) {
-            System.out.println("Please enter a valid integer for inventory\n");
             valid = false;
         }
         try { //checks if price is a double
             price = Double.parseDouble(priceInput.getText());
             exceptionPrice = "";
         } catch (NumberFormatException e) {
-            System.out.println("Please enter a valid integer for price");
             exceptionPrice = "Price is not a double\n";
             valid = false;
         }
@@ -88,7 +86,6 @@ public class AddPartController implements Initializable {
             max = Integer.parseInt(maxInput.getText());
             exceptionMax = "";
         } catch (NumberFormatException e) {
-            System.out.println("Please enter a valid integer for max");
             exceptionMax = "Max is not a integer\n";
             valid = false;
         }
@@ -96,21 +93,18 @@ public class AddPartController implements Initializable {
             min = Integer.parseInt(minInput.getText());
             exceptionMin = "";
         } catch (NumberFormatException e) {
-            System.out.println("Please enter a valid integer for min");
             exceptionMin = "Min is not a integer\n";
             valid = false;
         }
         if (min > max) { //checks if min is greater than max
-            System.out.println("Min cannot be greater than max");
             valid = false;
             exceptionMinMax = "Min cannot be greater than max\n";
         } else {
             exceptionMinMax = "";
         }
         if (stock > max || stock < min) { //checks if inventory is between min and max
-            System.out.println("Inventory must be between min and max");
             valid = false;
-            exceptionInvMinMax = "Inventory must be between min and max\n";
+            exceptionInvMinMax = "Inv must be between min and max\n";
         } else {
             exceptionInvMinMax = "";
         }
@@ -119,7 +113,6 @@ public class AddPartController implements Initializable {
                 machineId = Integer.parseInt(sourceInput.getText());
                 exceptionMachineId = "";
             } catch (NumberFormatException e) {
-                System.out.println("Please enter a valid integer for machine ID");
                 exceptionMachineId = "Machine ID is not a integer\n";
                 valid = false;
             }
@@ -139,7 +132,6 @@ public class AddPartController implements Initializable {
         } else {
             exception = "Exception: " + exceptionName + exceptionPrice + exceptionStock + exceptionMin + exceptionMax + exceptionMachineId + exceptionMinMax + exceptionInvMinMax;
             exceptionLabel.setText(exception);
-            System.out.println(exception);
         }
         valid = true;
     }

@@ -13,13 +13,30 @@ import java.io.IOException;
 
 import static ims.stephenwongc482.model.Inventory.*;
 
+/**
+ *
+ * @author Stephen Wong
+ * @version 1.0
+ *
+ * studentid: 011031716
+ * 4/18/2023
+ *
+ */
+
 
 public class Main extends Application {
+    /**
+     * FUTURE ENHANCEMENTS
+     *
+     * Add CSS styling to the application to make it more visually appealing.
+     * Connect it to a database to persist data.
+     * Refactor redundant code to utils folder.
+     *
+     */
 
     public static void main(String[] args) {
         initialData();
         launch();
-
     }
 
     @Override
@@ -47,6 +64,5 @@ public class Main extends Application {
         Inventory.addProduct(product);
         Inventory.addProduct(product2);
         Inventory.addProduct(product3);
-
     }
 }

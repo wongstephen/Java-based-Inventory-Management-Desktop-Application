@@ -32,7 +32,7 @@
         <TextField fx:id="minInput" accessibleText="Inventory" layoutX="358.0" layoutY="277.0" prefHeight="25.0" prefWidth="97.0" />
         <Button layoutX="909.0" layoutY="547.0" mnemonicParsing="false" onAction="#handleSaveBtn" text="Save" />
         <Button layoutX="989.0" layoutY="547.0" mnemonicParsing="false" onAction="#handleCancelBtn" text="Cancel" />
-        <TextField layoutX="899.0" layoutY="56.0" promptText="Search By Part ID or Name" />
+        <TextField fx:id="partSearchInput" layoutX="899.0" layoutY="56.0" onAction="#handleMainSearchPartSubmit" promptText="Search By Part ID or Name" />
         <TableView fx:id="allPartTable" layoutX="649.0" layoutY="111.0" prefHeight="167.0" prefWidth="400.0">
             <columns>
                 <TableColumn fx:id="allPartIdCol" prefWidth="75.0" text="Part ID" />
@@ -50,7 +50,7 @@
                 <TableColumn fx:id="assPartPrice" prefWidth="137.33334350585938" text="Price/ Cost per Unit" />
             </columns>
         </TableView>
-        <Button layoutX="909.0" layoutY="509.0" mnemonicParsing="false" text="Remove Associated Part" />
+        <Button layoutX="909.0" layoutY="509.0" mnemonicParsing="false" onAction="#handleRemoveAssPart" text="Remove Associated Part" />
       <Label fx:id="exceptionLabel" layoutX="92.0" layoutY="370.0" />
     </children>
 </AnchorPane>

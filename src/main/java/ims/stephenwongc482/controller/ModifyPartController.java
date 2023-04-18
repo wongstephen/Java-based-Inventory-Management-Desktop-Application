@@ -19,6 +19,10 @@ import static ims.stephenwongc482.controller.NavController.navigate;
 import static ims.stephenwongc482.model.Inventory.getAllParts;
 import static ims.stephenwongc482.model.Inventory.getPartIdCount;
 
+
+/**
+ * ModifyPartController class is used to modify a part.
+ */
 public class ModifyPartController implements Initializable {
 
     public static Part partToModify = null;
@@ -101,7 +105,7 @@ public class ModifyPartController implements Initializable {
     void handleSaveBtn(ActionEvent actionEvent) throws IOException {
         inHouse = inHouseRadio.isSelected();
         if (modifyNameInput.getText().equals("")) { //checks if name is empty
-            exceptionName = "Name cannot be empty\n";
+            exceptionName = "No data in name field\n";
             valid = false;
         } else {
             name = modifyNameInput.getText();
@@ -149,7 +153,7 @@ public class ModifyPartController implements Initializable {
 
         if (stock > max || stock < min) { //checks if inventory is between min and max
             valid = false;
-            exceptionInvMinMax = "Inventory must be between min and max\n";
+            exceptionInvMinMax = "Inv must be between min and max\n";
         } else {
             exceptionInvMinMax = "";
         }

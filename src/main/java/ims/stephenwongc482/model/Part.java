@@ -1,8 +1,9 @@
 package ims.stephenwongc482.model;
 
 /**
+ * Part class
  *
- * @author Stephen WOng
+ * @author Stephen Wong
  */
 public abstract class Part {
     private int id;

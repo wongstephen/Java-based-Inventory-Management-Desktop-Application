@@ -22,8 +22,10 @@ import static ims.stephenwongc482.controller.NavController.navigate;
 import static ims.stephenwongc482.model.Inventory.deletePart;
 import static ims.stephenwongc482.model.Inventory.deleteProduct;
 
+/**
+ * MainController class is used to control the main screen.
+ */
 public class MainController implements Initializable {
-
 
     public TableColumn prodIdCol;
     public TableColumn prodNameCol;
@@ -39,6 +41,7 @@ public class MainController implements Initializable {
     public TableView allPartTable;
     public TextField partSearchInput;
     public TextField productSearchInput;
+    public Label partsWarningLabel;
 
 
     /**
@@ -96,14 +99,17 @@ public class MainController implements Initializable {
         try {
             if (Integer.parseInt(searchInputText) > 0 && Integer.parseInt(searchInputText) < Inventory.getAllParts().size() + 1) {
                 allPartTable.getSelectionModel().select(Integer.parseInt(searchInputText)-1);
+                return;
             } else {
-                System.out.println("Part not found");
                 allPartTable.getSelectionModel().clearSelection();
                 allPartTable.setItems(searchPartByName(searchInputText));
             }
         } catch (NumberFormatException e) {
             allPartTable.getSelectionModel().clearSelection();
             allPartTable.setItems(searchPartByName(searchInputText));
+        }
+        if (allPartTable.getItems().size() == 0) {
+            searchAlert("Part");
         }
     }
     /**
@@ -133,6 +139,10 @@ public class MainController implements Initializable {
     void handleMainSearchProductSubmit(ActionEvent actionEvent) {
         allProductTable.setItems(Inventory.getAllProducts());
         String searchInputText = productSearchInput.getText();
+        if (searchInputText == null || searchInputText.isEmpty()) {
+            allProductTable.setItems(Inventory.getAllProducts());
+            return;
+        }
         try {
             if (Integer.parseInt(searchInputText) > 0 && Integer.parseInt(searchInputText) < Inventory.getAllProducts().size() + 1) {
                 allProductTable.getSelectionModel().select(Integer.parseInt(searchInputText)-1);
@@ -143,6 +153,10 @@ public class MainController implements Initializable {
         } catch (NumberFormatException e) {
             allProductTable.getSelectionModel().clearSelection();
             allProductTable.setItems(searchProductByName(searchInputText));
+
+        }
+        if (allProductTable.getItems().size() == 0) {
+            searchAlert("Product");
         }
     }
     /**
@@ -192,11 +206,10 @@ public class MainController implements Initializable {
      */
     @FXML
     void handleMainDeletePartBtn(ActionEvent actionEvent) {
-
         try {
             Alert alertConf = new Alert(Alert.AlertType.CONFIRMATION);
             alertConf.setTitle("Confirmation");
-            alertConf.setHeaderText("Delete Part");
+            alertConf.setHeaderText("Delete");
             alertConf.setContentText("Are you sure you want to delete this part?");
             Optional<ButtonType> result = alertConf.showAndWait();
             if (result.get() != ButtonType.OK) {
@@ -215,16 +228,16 @@ public class MainController implements Initializable {
         System.out.println("Main Delete Clicked");
     }
     /**
-     * handles delete part button
+     * handles delete product button
      *
-     * @param actionEvent - delete part button on main screen
+     * @param actionEvent - delete product button on main screen
      */
     @FXML
     void handleMainDeleteProductBtn(ActionEvent actionEvent) {
         try {
             Alert alertConf = new Alert(Alert.AlertType.CONFIRMATION);
             alertConf.setTitle("Confirmation");
-            alertConf.setHeaderText("Delete Product");
+            alertConf.setHeaderText("Delete");
             alertConf.setContentText("Are you sure you want to delete this product?");
             Optional<ButtonType> result = alertConf.showAndWait();
             if (result.get() != ButtonType.OK) {
@@ -233,6 +246,7 @@ public class MainController implements Initializable {
 
             Product selectedProduct = (Product) allProductTable.getSelectionModel().getSelectedItem();
             if(selectedProduct.getAllAssociatedParts().size() > 0) {
+                partsWarningLabel.setText("This product has parts");
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Error");
                 alert.setHeaderText("Product has associated parts");
@@ -240,6 +254,8 @@ public class MainController implements Initializable {
                 alert.showAndWait();
                 return;
             }
+
+            partsWarningLabel.setText("");
             deleteProduct(selectedProduct);
         }
         catch (NullPointerException e) {
@@ -277,7 +293,6 @@ public class MainController implements Initializable {
             setProductToModify(selectedProduct);
             navigate(actionEvent, "modifyProduct");
         } catch (NullPointerException e) {
-            System.out.println("No product selected");
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
             alert.setHeaderText("No product selected");
@@ -297,5 +312,16 @@ public class MainController implements Initializable {
         Platform.exit();
     }
 
+    /**
+     * Alerts users if no part is found
+     *
+     */
+    public static void searchAlert(String searchInputType) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Error");
+        alert.setHeaderText(searchInputType + " could not found");
+        alert.setContentText("Please enter a valid " + searchInputType + " name or id");
+        alert.showAndWait();
+    }
 
 }
