@@ -46,5 +46,6 @@
             </columns>
         </TableView>
         <Button fx:id="handleRemoveAssPart" layoutX="862.0" layoutY="505.0" mnemonicParsing="false" text="Remove Associated Part" />
+      <Label fx:id="exceptionLabel" layoutX="166.0" layoutY="398.0" />
     </children>
 </AnchorPane>

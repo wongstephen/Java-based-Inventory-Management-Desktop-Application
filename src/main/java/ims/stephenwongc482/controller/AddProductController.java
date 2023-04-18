@@ -67,7 +67,6 @@ public class AddProductController implements Initializable {
         allPartPriceCol.setCellValueFactory(new PropertyValueFactory<>("price"));
     }
 
-
     /**
      * Saves new product to inventory
      *
@@ -142,4 +141,6 @@ public class AddProductController implements Initializable {
 
     }
 
+    public void handleAddBtn(ActionEvent actionEvent) {
+    }
 }

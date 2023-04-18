@@ -92,6 +92,9 @@ public class ModifyPartController implements Initializable {
      *
      * @param actionEvent - save button on add screen
      */
+
+    /** RUNTIME ERROR: I was getting errors when saving a modified part. I realized I had to use the builtin method .indexOf instead of the method I created in the Inventory class, lookup **/
+
     @FXML
     void handleSaveBtn(ActionEvent actionEvent) throws IOException {
         inHouse = inHouseRadio.isSelected();
