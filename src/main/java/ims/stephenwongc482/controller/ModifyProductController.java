@@ -1,6 +1,7 @@
 package ims.stephenwongc482.controller;
 
 import ims.stephenwongc482.model.Inventory;
+import ims.stephenwongc482.model.Part;
 import ims.stephenwongc482.model.Product;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -79,15 +80,11 @@ public class ModifyProductController implements Initializable {
         modifyProductMax.setText(String.valueOf(productToModify.getMax()));
         modifyProductMin.setText(String.valueOf(productToModify.getMin()));
 
-        if(productToModify.getAllAssociatedParts().size() > 0) {
-            assPartTable.setItems(productToModify.getAllAssociatedParts());
-            assPartId.setCellValueFactory(new PropertyValueFactory<>("id"));
-            assPartName.setCellValueFactory(new PropertyValueFactory<>("name"));
-            assPartStock.setCellValueFactory(new PropertyValueFactory<>("stock"));
-            assPartPrice.setCellValueFactory(new PropertyValueFactory<>("price"));
-
-
-        }
+        assPartTable.setItems(productToModify.getAllAssociatedParts());
+        assPartId.setCellValueFactory(new PropertyValueFactory<>("id"));
+        assPartName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        assPartStock.setCellValueFactory(new PropertyValueFactory<>("stock"));
+        assPartPrice.setCellValueFactory(new PropertyValueFactory<>("price"));
 
         allPartTable.setItems(Inventory.getAllParts());
         allPartIdCol.setCellValueFactory(new PropertyValueFactory<>("id"));
@@ -154,6 +151,12 @@ public class ModifyProductController implements Initializable {
         }
         if (valid) { //if all fields are valid, mod part in inventory
             Product product = new Product(getProductIdCount(), name, price, stock, min, max);
+            for (Part part : productToModify.getAllAssociatedParts()) {
+                product.deleteAssociatedPart(part);
+            }
+            for (Object part : assPartTable.getItems()) {
+                product.addAssociatedPart((Part)part);
+            }
             Inventory.updateProduct(getAllProducts().indexOf(productToModify), product);
             navigate(actionEvent, "mainScreen");
         } else {
@@ -175,14 +178,22 @@ public class ModifyProductController implements Initializable {
         navigate(actionEvent, "mainScreen");
     }
 
+    /**
+     * adds associated part to product
+     * @param actionEvent
+     */
     @FXML
-    void handleAddAssPart(ActionEvent actionEvent) {
-
+    void handleAddAssPartBtn(ActionEvent actionEvent) {
+        productToModify.addAssociatedPart((Part)allPartTable.getSelectionModel().getSelectedItem());
     }
 
+    /**
+     * removes associated part from product
+     * @param actionEvent
+     */
     @FXML
     void handleRemoveAssPart(ActionEvent actionEvent) {
-
+        productToModify.deleteAssociatedPart((Part)assPartTable.getSelectionModel().getSelectedItem());
     }
 
 

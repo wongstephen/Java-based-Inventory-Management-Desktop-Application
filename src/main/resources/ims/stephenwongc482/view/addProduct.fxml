@@ -41,13 +41,13 @@
                 <TableColumn fx:id="allPartPriceCol" prefWidth="137.33334350585938" text="Price/ Cost per Unit" />
             </columns>
         </TableView>
-        <Button layoutX="962.0" layoutY="289.0" mnemonicParsing="false" onAction="#handleAddBtn" text="Add" />
+        <Button layoutX="962.0" layoutY="289.0" mnemonicParsing="false" onAction="#handleAddAssPartBtn" text="Add" />
         <TableView fx:id="associatedPartTable" layoutX="649.0" layoutY="327.0" prefHeight="167.0" prefWidth="400.0">
             <columns>
-                <TableColumn prefWidth="75.0" text="Part ID" />
-                <TableColumn prefWidth="75.0" text="Part Name" />
-                <TableColumn prefWidth="114.00006103515625" text="Inventory Level" />
-                <TableColumn prefWidth="137.33334350585938" text="Price/ Cost per Unit" />
+                <TableColumn fx:id="assPartId" prefWidth="75.0" text="Part ID" />
+                <TableColumn fx:id="assPartName" prefWidth="75.0" text="Part Name" />
+                <TableColumn fx:id="assPartStock" prefWidth="114.00006103515625" text="Inventory Level" />
+                <TableColumn fx:id="assPartPrice" prefWidth="137.33334350585938" text="Price/ Cost per Unit" />
             </columns>
         </TableView>
         <Button layoutX="909.0" layoutY="509.0" mnemonicParsing="false" text="Remove Associated Part" />

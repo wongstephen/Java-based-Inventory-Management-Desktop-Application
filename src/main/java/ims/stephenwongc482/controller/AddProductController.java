@@ -30,6 +30,10 @@ public class AddProductController implements Initializable {
     public Label exceptionLabel;
 
     public TableView associatedPartTable;
+    public TableColumn assPartId;
+    public TableColumn assPartName;
+    public TableColumn assPartStock;
+    public TableColumn assPartPrice;
 
     private String exceptionName = "";
     private Boolean valid = true;
@@ -48,7 +52,7 @@ public class AddProductController implements Initializable {
     private String exceptionMinMax  = "";
     private String exceptionInvMinMax  = "";
 
-     /**
+    /**
      * cancels addition of new product and navigates back to main screen
      *
      * @param actionEvent - button on product screen
@@ -65,6 +69,11 @@ public class AddProductController implements Initializable {
         allPartNameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
         allPartStockCol.setCellValueFactory(new PropertyValueFactory<>("stock"));
         allPartPriceCol.setCellValueFactory(new PropertyValueFactory<>("price"));
+
+        assPartId.setCellValueFactory(new PropertyValueFactory<>("id"));
+        assPartName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        assPartStock.setCellValueFactory(new PropertyValueFactory<>("stock"));
+        assPartPrice.setCellValueFactory(new PropertyValueFactory<>("price"));
     }
 
     /**
@@ -129,6 +138,12 @@ public class AddProductController implements Initializable {
         }
         if (valid) { //if all fields are valid, adds part to inventory
             Product product = new Product(getProductIdCount(), name, price, stock, min, max);
+            if (associatedPartTable.getItems().size() > 0) {
+                for (int i = 0; i < associatedPartTable.getItems().size(); i++) {
+                    Part part = (Part) associatedPartTable.getItems().get(i);
+                    product.addAssociatedPart(part);
+                }
+            }
             Inventory.addProduct(product);
             navigate(actionEvent, "mainScreen");
         } else {
@@ -137,10 +152,12 @@ public class AddProductController implements Initializable {
             System.out.println(exception);
         }
         valid = true;
+            }
 
+    public void handleAddAssPartBtn(ActionEvent actionEvent) {
+        Part part = (Part) allPartTable.getSelectionModel().getSelectedItem();
+        associatedPartTable.getItems().add(part);
 
     }
 
-    public void handleAddBtn(ActionEvent actionEvent) {
-    }
 }

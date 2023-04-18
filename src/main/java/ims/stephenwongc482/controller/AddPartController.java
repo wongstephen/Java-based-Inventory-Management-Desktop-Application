@@ -50,6 +50,11 @@ public class AddPartController implements Initializable {
     public String exceptionMinMax = "";
     public String exceptionInvMinMax = "";
 
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+    }
+
     /**
      * Saves new part to inventory when save button is clicked
      *
@@ -58,7 +63,7 @@ public class AddPartController implements Initializable {
     @FXML
     void handleSaveBtn(ActionEvent actionEvent) throws IOException {
         inHouse = inHouseRadio.isSelected();
-        if(nameInput.getText().equals("")){ //checks if name is empty
+        if (nameInput.getText().equals("")) { //checks if name is empty
             exceptionName = "Name cannot be empty\n";
             valid = false;
         } else {
@@ -137,8 +142,6 @@ public class AddPartController implements Initializable {
             System.out.println(exception);
         }
         valid = true;
-
-
     }
 
     /**
@@ -170,8 +173,4 @@ public class AddPartController implements Initializable {
     }
 
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-
-    }
 }

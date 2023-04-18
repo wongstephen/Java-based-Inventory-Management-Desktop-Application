@@ -13,6 +13,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 import static ims.stephenwongc482.controller.ModifyPartController.setPartToModify;
@@ -64,7 +65,6 @@ public class MainController implements Initializable {
         allProductTable.setItems(Inventory.getAllProducts());
         allPartTable.setItems(Inventory.getAllParts());
     }
-
 
     /**
      * creates a list of parts that match the search criteria
@@ -192,12 +192,20 @@ public class MainController implements Initializable {
      */
     @FXML
     void handleMainDeletePartBtn(ActionEvent actionEvent) {
+
         try {
+            Alert alertConf = new Alert(Alert.AlertType.CONFIRMATION);
+            alertConf.setTitle("Confirmation");
+            alertConf.setHeaderText("Delete Part");
+            alertConf.setContentText("Are you sure you want to delete this part?");
+            Optional<ButtonType> result = alertConf.showAndWait();
+            if (result.get() != ButtonType.OK) {
+                return;
+            }
             Part selectedPart = (Part) allPartTable.getSelectionModel().getSelectedItem();
             deletePart(selectedPart);
         }
         catch (NullPointerException e) {
-            System.out.println("No part selected");
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
             alert.setHeaderText("No part selected");
@@ -213,14 +221,28 @@ public class MainController implements Initializable {
      */
     @FXML
     void handleMainDeleteProductBtn(ActionEvent actionEvent) {
-
         try {
+            Alert alertConf = new Alert(Alert.AlertType.CONFIRMATION);
+            alertConf.setTitle("Confirmation");
+            alertConf.setHeaderText("Delete Product");
+            alertConf.setContentText("Are you sure you want to delete this product?");
+            Optional<ButtonType> result = alertConf.showAndWait();
+            if (result.get() != ButtonType.OK) {
+                return;
+            }
+
             Product selectedProduct = (Product) allProductTable.getSelectionModel().getSelectedItem();
+            if(selectedProduct.getAllAssociatedParts().size() > 0) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setHeaderText("Product has associated parts");
+                alert.setContentText("Please remove all associated parts before deleting");
+                alert.showAndWait();
+                return;
+            }
             deleteProduct(selectedProduct);
-            System.out.println("Main Delete Clicked");
         }
         catch (NullPointerException e) {
-            System.out.println("No product selected");
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
             alert.setHeaderText("No product selected");
