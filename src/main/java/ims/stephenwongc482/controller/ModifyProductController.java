@@ -35,6 +35,12 @@ public class ModifyProductController implements Initializable {
     public TableColumn allPartStockCol;
     public TableColumn allPartPriceCol;
 
+    public TableView assPartTable;
+    public TableColumn assPartId;
+    public TableColumn assPartName;
+    public TableColumn assPartStock;
+    public TableColumn assPartPrice;
+
     private String name;
     private double price;
     private int stock;
@@ -72,6 +78,16 @@ public class ModifyProductController implements Initializable {
         modifyProductPrice.setText(String.valueOf(productToModify.getPrice()));
         modifyProductMax.setText(String.valueOf(productToModify.getMax()));
         modifyProductMin.setText(String.valueOf(productToModify.getMin()));
+
+        if(productToModify.getAllAssociatedParts().size() > 0) {
+            assPartTable.setItems(productToModify.getAllAssociatedParts());
+            assPartId.setCellValueFactory(new PropertyValueFactory<>("id"));
+            assPartName.setCellValueFactory(new PropertyValueFactory<>("name"));
+            assPartStock.setCellValueFactory(new PropertyValueFactory<>("stock"));
+            assPartPrice.setCellValueFactory(new PropertyValueFactory<>("price"));
+
+
+        }
 
         allPartTable.setItems(Inventory.getAllParts());
         allPartIdCol.setCellValueFactory(new PropertyValueFactory<>("id"));

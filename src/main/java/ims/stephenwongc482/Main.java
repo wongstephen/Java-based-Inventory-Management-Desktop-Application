@@ -43,8 +43,10 @@ public class Main extends Application {
         Product product = new Product(getProductIdCount(), "Giant Bicycle", 299.99, 15, 1, 20);
         Product product2 = new Product(getProductIdCount(), "Scott Bicycle", 199.99, 15, 1, 20);
         Product product3 = new Product(getProductIdCount(), "GT Bike", 99.99, 15, 1, 20);
+        product3.addAssociatedPart(Inventory.lookupPart(1));
         Inventory.addProduct(product);
         Inventory.addProduct(product2);
         Inventory.addProduct(product3);
+
     }
 }
