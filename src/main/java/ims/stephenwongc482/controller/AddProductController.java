@@ -4,10 +4,7 @@ import ims.stephenwongc482.model.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.io.IOException;
@@ -31,6 +28,8 @@ public class AddProductController implements Initializable {
     public TextField minInput;
     public TextField maxInput;
     public Label exceptionLabel;
+
+    public TableView associatedPartTable;
 
     private String exceptionName = "";
     private Boolean valid = true;
@@ -68,15 +67,14 @@ public class AddProductController implements Initializable {
         allPartPriceCol.setCellValueFactory(new PropertyValueFactory<>("price"));
     }
 
+
     /**
      * Saves new product to inventory
      *
      * @param actionEvent - button on product screen
      */
-
     @FXML
     void handleSaveBtn(ActionEvent actionEvent) throws IOException {
-
         if(nameInput.getText().equals("")){ //checks if name is empty
             exceptionName = "Name cannot be empty\n";
             valid = false;

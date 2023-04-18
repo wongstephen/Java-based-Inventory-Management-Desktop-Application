@@ -1,6 +1,7 @@
 package ims.stephenwongc482.controller;
 
 import ims.stephenwongc482.model.InHouse;
+import ims.stephenwongc482.model.Inventory;
 import ims.stephenwongc482.model.Outsourced;
 import ims.stephenwongc482.model.Part;
 import javafx.event.ActionEvent;
@@ -15,11 +16,13 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import static ims.stephenwongc482.controller.NavController.navigate;
+import static ims.stephenwongc482.model.Inventory.getAllParts;
+import static ims.stephenwongc482.model.Inventory.getPartIdCount;
 
 public class ModifyPartController implements Initializable {
 
-    public Label sourceLabel;
     public static Part partToModify = null;
+    public Label sourceLabel;
     public TextField modifyIdInput;
     public TextField modifyNameInput;
     public TextField modifyStockInput;
@@ -29,6 +32,30 @@ public class ModifyPartController implements Initializable {
     public TextField modifyMinInput;
     public RadioButton inHouseRadio;
     public RadioButton outsourcedRadio;
+    public Label exceptionLabel;
+
+    boolean inHouse;
+    String exceptionName;
+    String name;
+    double price;
+    boolean valid = true;
+    int stock;
+    int min;
+    int max;
+    String exceptionPrice;
+    String exceptionStock;
+    String exceptionMinMax;
+    String exceptionInvMinMax;
+    int machineId;
+    String exceptionMachineId;
+    String companyName;
+    String exception = "";
+    String exceptionMin = "";
+    String exceptionMax = "";
+
+    public static void setPartToModify(Part part) {
+        partToModify = part;
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -47,19 +74,6 @@ public class ModifyPartController implements Initializable {
         }
     }
 
-    public static void setPartToModify(Part part) {
-        partToModify = part;
-        System.out.println("Part to modify: " + partToModify.getName());
-    }
-
-
-
-    @FXML
-    void handleSaveBtn(ActionEvent actionEvent) throws IOException {
-        // Save Data then navigate to main
-        navigate(actionEvent, "mainScreen");
-    }
-
     @FXML
     void handleCancelBtn(ActionEvent actionEvent) throws IOException {
         navigate(actionEvent, "mainScreen");
@@ -73,5 +87,97 @@ public class ModifyPartController implements Initializable {
         sourceLabel.setText("Company Name");
     }
 
+    /**
+     * Saves new part to inventory when save button is clicked
+     *
+     * @param actionEvent - save button on add screen
+     */
+    @FXML
+    void handleSaveBtn(ActionEvent actionEvent) throws IOException {
+        inHouse = inHouseRadio.isSelected();
+        if (modifyNameInput.getText().equals("")) { //checks if name is empty
+            exceptionName = "Name cannot be empty\n";
+            valid = false;
+        } else {
+            name = modifyNameInput.getText();
+            exceptionName = "";
+        }
 
+        try { //checks if stock is an integer
+            stock = Integer.parseInt(modifyStockInput.getText());
+            exceptionStock = "";
+        } catch (NumberFormatException e) {
+            exceptionStock = "Inventory is not a integer\n";
+            valid = false;
+        }
+
+        try { //checks if price is a double
+            price = Double.parseDouble(modifyPriceInput.getText());
+            exceptionPrice = "";
+        } catch (NumberFormatException e) {
+            exceptionPrice = "Price is not a double\n";
+            valid = false;
+        }
+
+        try { //checks if max is an integer
+            max = Integer.parseInt(modifyMaxInput.getText());
+            exceptionMax = "";
+        } catch (NumberFormatException e) {
+            exceptionMax = "Max is not a integer\n";
+            valid = false;
+        }
+
+        try { //checks if min is an integer
+            min = Integer.parseInt(modifyMinInput.getText());
+            exceptionMin = "";
+        } catch (NumberFormatException e) {
+            exceptionMin = "Min is not a integer\n";
+            valid = false;
+        }
+
+        if (min > max) { //checks if min is greater than max
+            valid = false;
+            exceptionMinMax = "Min cannot be greater than max\n";
+        } else {
+            exceptionMinMax = "";
+        }
+
+        if (stock > max || stock < min) { //checks if inventory is between min and max
+            valid = false;
+            exceptionInvMinMax = "Inventory must be between min and max\n";
+        } else {
+            exceptionInvMinMax = "";
+        }
+
+        if (inHouse) {
+            try { //checks if machine ID is an integer
+                machineId = Integer.parseInt(modifySourceInput.getText());
+                exceptionMachineId = "";
+            } catch (NumberFormatException e) {
+                exceptionMachineId = "Machine ID is not a integer\n";
+                valid = false;
+            }
+        } else {
+            companyName = modifySourceInput.getText();
+        }
+        if (valid) { //if all fields are valid, adds part to inventory
+            if (inHouse) { //checks if part is in house or outsourced
+                Part part = new InHouse(getPartIdCount(), name, price, stock, min, max, machineId);
+                Inventory.updatePart(getAllParts().indexOf(partToModify), part);
+            } else {
+                companyName = modifySourceInput.getText();
+                Part part = new Outsourced(getPartIdCount(), name, price, stock, min, max, companyName);
+                Inventory.updatePart(getAllParts().indexOf(partToModify), part);
+
+            }
+            navigate(actionEvent, "mainScreen");
+        } else {
+            exception = "Exception: " + exceptionName + exceptionPrice + exceptionStock + exceptionMin + exceptionMax + exceptionMachineId + exceptionMinMax + exceptionInvMinMax;
+            exceptionLabel.setText(exception);
+
+        }
+        valid = true;
+
+
+    }
 }

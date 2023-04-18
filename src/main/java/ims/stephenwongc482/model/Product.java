@@ -1,18 +1,17 @@
 package ims.stephenwongc482.model;
 
-import javafx.beans.Observable;
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableArray;
 import javafx.collections.ObservableList;
 
 public class Product {
+    private final ObservableList<Part> associatedParts = FXCollections.observableArrayList();
+
     private int id;
     private String name;
     private double price;
     private int stock;
     private int min;
     private int max;
-    private ObservableList<Part> associatedParts = FXCollections.observableArrayList();
 
     public Product(int id, String name, double price, int stock, int min, int max) {
         this.id = id;
