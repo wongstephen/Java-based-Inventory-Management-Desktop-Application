@@ -75,6 +75,7 @@ public class ModifyPartController implements Initializable {
         } else {
             modifySourceInput.setText(((Outsourced) partToModify).getCompanyName());
             outsourcedRadio.setSelected(true);
+            sourceLabel.setText("Company Name");
         }
     }
 
